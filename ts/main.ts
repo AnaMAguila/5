@@ -30,14 +30,14 @@ fetch("https://weather.visualcrossing.com/VisualCrossingWebServices/rest/service
 });
 
 // Muestra el tiempo
-function processWeatherData(response : any) {  
+const processWeatherData = (response : any) => {  
     var days=response.days[0];
     
     // divTemps.innerHTML = days.description;
     divTemps.innerHTML = `<img src="./assets/icons/${days.icon}.png" alt="Weather" class="svg-icon"> | ${days.temp}ºC`;
 }
 
-function generaBlob() {
+const generaBlob = () => {
     const caixaBlob = document.querySelector(`.caixaBlob`) as HTMLElement;
 
     const blobAleatori : number = Math.floor(Math.random()*10);
@@ -97,14 +97,14 @@ async function mostraAcuditChuck() {
 }
 
 // Genera un número aleatorio para mostrar los chistes
-function acuditAleatori(){
+const acuditAleatori = () =>{
     const numAleatori : number = Math.floor(Math.random()*2);
     (numAleatori%2==0) ?  mostraAcudit() : mostraAcuditChuck(); 
 }
 
 btnAcudit.addEventListener(`click`, acuditAleatori);
 
-function valoracio(nota : number) {
+const valoracio = (nota : number) => {
     let resultat: interfAcudits = {
         joke : acuditNet,
         score: nota,

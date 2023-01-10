@@ -31,12 +31,12 @@ fetch("https://weather.visualcrossing.com/VisualCrossingWebServices/rest/service
     processWeatherData(response);
 });
 // Muestra el tiempo
-function processWeatherData(response) {
+const processWeatherData = (response) => {
     var days = response.days[0];
     // divTemps.innerHTML = days.description;
     divTemps.innerHTML = `<img src="./assets/icons/${days.icon}.png" alt="Weather" class="svg-icon"> | ${days.temp}ºC`;
-}
-function generaBlob() {
+};
+const generaBlob = () => {
     const caixaBlob = document.querySelector(`.caixaBlob`);
     const blobAleatori = Math.floor(Math.random() * 10);
     const blobAleaSec1 = Math.floor(Math.random() * 10);
@@ -51,7 +51,7 @@ function generaBlob() {
         <div class="blobSec2">
         <img src="./assets/blob/blob${blobAleaSec2}.svg">
         </div>`;
-}
+};
 // Llama a la función al cargar la página
 generaBlob();
 // API Jokes
@@ -86,12 +86,12 @@ function mostraAcuditChuck() {
     });
 }
 // Genera un número aleatorio para mostrar los chistes
-function acuditAleatori() {
+const acuditAleatori = () => {
     const numAleatori = Math.floor(Math.random() * 2);
     (numAleatori % 2 == 0) ? mostraAcudit() : mostraAcuditChuck();
-}
+};
 btnAcudit.addEventListener(`click`, acuditAleatori);
-function valoracio(nota) {
+const valoracio = (nota) => {
     let resultat = {
         joke: acuditNet,
         score: nota,
@@ -104,4 +104,4 @@ function valoracio(nota) {
     (foundIndex == -1) ? reportAcudits.push(resultat) : reportAcudits[foundIndex] = resultat;
     //Muestra por consola el array de chistes con su última valoración
     console.log(reportAcudits);
-}
+};
