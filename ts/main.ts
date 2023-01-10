@@ -18,8 +18,6 @@ const divTemps = document.querySelector(`.temps`) as HTMLElement;
 // Oculta botones valoración si no hay chiste
 divValoracio.style.display = `none`;
 
-if(btnAcudit != null) btnAcudit.addEventListener(`click`, mostraAcudit);
-
 // API Weather
 fetch("https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/barcelona?unitGroup=metric&key=TBHYF4EG4ZALQ78K35FVM4TCT&contentType=json", {
   method: 'GET', 
@@ -54,6 +52,29 @@ async function mostraAcudit() {
     acuditNet = acuditObj.joke;
     textAcudit.innerHTML = `" ${acuditNet} "`;
 }
+
+// API Jokes de Chuck Norris
+async function mostraAcuditChuck() {
+    const acuditsAPIChuck = await fetch(`https://api.chucknorris.io/jokes/random`, {
+        headers: {
+            Accept: `application/json`,
+        }
+    });
+
+    const acuditObj = await acuditsAPIChuck.json();
+    divValoracio.style.display = `block`;
+    
+    acuditNet = acuditObj.value;
+    textAcudit.innerHTML = `" ${acuditNet} "`;
+}
+
+// Genera un número aleatorio para mostrar los chistes
+function acuditAleatori(){
+    const numAleatori : number = Math.floor(Math.random()*2);
+    (numAleatori%2==0) ?  mostraAcudit() : mostraAcuditChuck(); 
+}
+
+btnAcudit.addEventListener(`click`, acuditAleatori);
 
 function valoracio(nota : number) {
     let resultat: interfAcudits = {
