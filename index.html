@@ -4,13 +4,28 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
     <script defer src="./js/main.js"></script>
     <title>Sprint 5 - Acudits</title>
 </head>
 <body>
     <div class="container">
-        <h1 class="textAcudit">Acudits</h1>
-        <button class="btnAcudit">Següent acudit</button>
+        <div class="temps">
+            Avui: parcialment ennuvolat
+        </div>
+
+        <div class="caixaAcudit">
+            <h3>Preparat per riure? &#129315;</h3>
+            <p class="textAcudit"></p>
+
+            <div class="valoracio">
+                <button class="btnValoracio" onclick="valoracio(1)">&#128549;</button>
+                <button class="btnValoracio" onclick="valoracio(2)">&#128528;</button>
+                <button class="btnValoracio" onclick="valoracio(3)">&#129315;</button>
+            </div>
+
+            <button class="btnAcudit">Següent acudit</button>
+        </div>
     </div>
 </body>
 </html>

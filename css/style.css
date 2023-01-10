@@ -1,0 +1,60 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #fff;
+    overflow: hidden;
+}
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    background: rgba(3, 172, 240, 0.5);
+    background-image: url(../assets/img/fons.jpg);
+    background-size: cover;
+}
+
+.temps {
+    font-size: 0.8rem;
+    position: absolute;
+}
+
+.caixaAcudit {
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 5px 5px 10px rgb(155, 155, 155);
+    padding: 50px;
+    margin: auto;
+    text-align: center;
+}
+
+.textAcudit {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.btnValoracio {
+    border: none;
+    background-color: #fff;
+    cursor:pointer;
+    margin-bottom: 50px;
+    font-size: 1.5rem;
+
+}
+
+.btnAcudit {
+	background-color:#16e1f0;
+    border: none;
+	border-radius:8px;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	padding:13px 32px;
+	text-decoration:none;
+}
+.btnAcudit:hover {
+	background-color:#29aac1;
+}
+.btnAcudit:active {
+	position:relative;
+	top:1px;
+}

@@ -8,10 +8,16 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+let acuditNet = ``;
 const textAcudit = document.querySelector(`.textAcudit`);
 const btnAcudit = document.querySelector(`.btnAcudit`);
+const divValoracio = document.querySelector(`.valoracio`);
+const divTemps = document.querySelector(`.temps`);
+// Oculta botones valoración si no hay chiste
+divValoracio.style.display = `none`;
 if (btnAcudit != null)
     btnAcudit.addEventListener(`click`, mostraAcudit);
+// API Jokes
 function mostraAcudit() {
     return __awaiter(this, void 0, void 0, function* () {
         const acuditsAPI = yield fetch(`https://icanhazdadjoke.com/`, {
@@ -20,6 +26,13 @@ function mostraAcudit() {
             }
         });
         const acuditObj = yield acuditsAPI.json();
+        divValoracio.style.display = `block`;
         console.log(acuditObj.joke);
+        acuditNet = acuditObj.joke;
+        textAcudit.innerHTML = `" ${acuditNet} "`;
     });
+}
+function valoracio(nota) {
+    // Muestra la nota del chiste por consola
+    console.log("Score: ", nota);
 }
