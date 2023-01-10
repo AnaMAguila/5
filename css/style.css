@@ -8,9 +8,6 @@ body {
     width: 100vw;
     height: 100vh;
     display: flex;
-    background: rgba(3, 172, 240, 0.5);
-    background-image: url(../assets/img/fons.jpg);
-    background-size: cover;
 }
 
 .temps {
@@ -25,13 +22,42 @@ body {
     vertical-align: middle;
 }
 
+.caixaBlob {
+    width: 80vw;
+    height: 95vh;
+    z-index: -10;
+    position: absolute;
+    left:0;
+    right:0;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.blobPrinc {
+    width: 45vw;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.blobSec1 {
+    width: 100px;
+    right: 0;
+    top: 0;
+    position: absolute;
+}
+
+.blobSec2 {
+    width: 100px;
+    left:0;
+    bottom: 0;
+    position: absolute;
+}
+
 .caixaAcudit {
-    background-color: #fff;
-    border-radius: 5px;
-    box-shadow: 5px 5px 10px rgb(155, 155, 155);
-    padding: 50px;
+    width: 380px;
     margin: auto;
     text-align: center;
+    color: #fff;
 }
 
 .textAcudit {
@@ -41,26 +67,30 @@ body {
 
 .btnValoracio {
     border: none;
-    background-color: #fff;
+    background-color: #00000000;
     cursor:pointer;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
     font-size: 1.5rem;
-
 }
 
 .btnAcudit {
-	background-color:#16e1f0;
-    border: none;
-	border-radius:8px;
+	box-shadow: 4px 4px 0px 0px #edc951;
+	background-color:#edc951;
+	border-radius:28px;
+	border:3px solid #000000;
 	display:inline-block;
 	cursor:pointer;
-	color:#ffffff;
-	padding:13px 32px;
+	color:#000000;
+	font-weight:bold;
+	padding:16px 31px;
 	text-decoration:none;
+	text-shadow:1px 2px 0px #ffffff;
 }
+
 .btnAcudit:hover {
-	background-color:#29aac1;
+	background-color:#f0b609;
 }
+
 .btnAcudit:active {
 	position:relative;
 	top:1px;

@@ -32,8 +32,32 @@ fetch("https://weather.visualcrossing.com/VisualCrossingWebServices/rest/service
 // Muestra el tiempo
 function processWeatherData(response : any) {  
     var days=response.days[0];
-    divTemps.innerHTML = days.description;
+    
+    // divTemps.innerHTML = days.description;
+    divTemps.innerHTML = `<img src="./assets/icons/${days.icon}.png" alt="Weather" class="svg-icon"> | ${days.temp}ºC`;
 }
+
+function generaBlob() {
+    const caixaBlob = document.querySelector(`.caixaBlob`) as HTMLElement;
+
+    const blobAleatori : number = Math.floor(Math.random()*10);
+    const blobAleaSec1 : number = Math.floor(Math.random()*10);
+    const blobAleaSec2 : number = Math.floor(Math.random()*10);
+
+    caixaBlob.innerHTML = `
+        <div class="blobSec1">
+        <img src="./assets/blob/blob${blobAleaSec1}.svg" >
+        </div>
+        <div class="blobPrinc">
+        <img src="./assets/blob/blob${blobAleatori}.svg">
+        </div>
+        <div class="blobSec2">
+        <img src="./assets/blob/blob${blobAleaSec2}.svg">
+        </div>`;       
+}
+
+// Llama a la función al cargar la página
+generaBlob();
 
 // API Jokes
 async function mostraAcudit() {
@@ -51,6 +75,8 @@ async function mostraAcudit() {
 
     acuditNet = acuditObj.joke;
     textAcudit.innerHTML = `" ${acuditNet} "`;
+
+    generaBlob(); 
 }
 
 // API Jokes de Chuck Norris
@@ -66,6 +92,8 @@ async function mostraAcuditChuck() {
     
     acuditNet = acuditObj.value;
     textAcudit.innerHTML = `" ${acuditNet} "`;
+
+    generaBlob(); 
 }
 
 // Genera un número aleatorio para mostrar los chistes
