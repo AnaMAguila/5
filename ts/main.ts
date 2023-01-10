@@ -20,6 +20,22 @@ divValoracio.style.display = `none`;
 
 if(btnAcudit != null) btnAcudit.addEventListener(`click`, mostraAcudit);
 
+// API Weather
+fetch("https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/barcelona?unitGroup=metric&key=TBHYF4EG4ZALQ78K35FVM4TCT&contentType=json", {
+  method: 'GET', 
+  headers: {},           
+}).then(response => {
+  if (!response.ok) throw response;        
+  return response.json();
+}).then(response => {
+  processWeatherData(response);
+});
+
+// Muestra el tiempo
+function processWeatherData(response : any) {  
+    var days=response.days[0];
+    divTemps.innerHTML = days.description;
+}
 
 // API Jokes
 async function mostraAcudit() {
