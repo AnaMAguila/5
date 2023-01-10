@@ -8,6 +8,10 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+;
+//Array que almacena los datos de la interface
+const reportAcudits = [];
+//Para conservar el chiste sin ""
 let acuditNet = ``;
 const textAcudit = document.querySelector(`.textAcudit`);
 const btnAcudit = document.querySelector(`.btnAcudit`);
@@ -27,12 +31,22 @@ function mostraAcudit() {
         });
         const acuditObj = yield acuditsAPI.json();
         divValoracio.style.display = `block`;
-        console.log(acuditObj.joke);
+        //console.log(acuditObj.joke);
         acuditNet = acuditObj.joke;
         textAcudit.innerHTML = `" ${acuditNet} "`;
     });
 }
 function valoracio(nota) {
+    let resultat = {
+        joke: acuditNet,
+        score: nota,
+        date: new Date().toISOString()
+    };
     // Muestra la nota del chiste por consola
-    console.log("Score: ", nota);
+    //console.log("Score: ", nota);
+    //Comprobar si el chiste existe y crearlo o modificar la nota
+    const foundIndex = reportAcudits.findIndex(element => element.joke === acuditNet);
+    (foundIndex == -1) ? reportAcudits.push(resultat) : reportAcudits[foundIndex] = resultat;
+    //Muestra por consola el array de chistes con su última valoración
+    console.log(reportAcudits);
 }

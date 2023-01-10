@@ -1,4 +1,15 @@
+interface interfAcudits {
+    joke : string;
+    score : number;
+    date : string;
+};
+
+//Array que almacena los datos de la interface
+const reportAcudits : interfAcudits[] = []; 
+
+//Para conservar el chiste sin ""
 let acuditNet : string = ``;
+
 const textAcudit = document.querySelector(`.textAcudit`) as HTMLElement;
 const btnAcudit = document.querySelector(`.btnAcudit`) as HTMLElement;
 const divValoracio = document.querySelector(`.valoracio`) as HTMLElement;
@@ -22,13 +33,26 @@ async function mostraAcudit() {
     
     divValoracio.style.display = `block`;
 
-    console.log(acuditObj.joke);
+    //console.log(acuditObj.joke);
 
     acuditNet = acuditObj.joke;
     textAcudit.innerHTML = `" ${acuditNet} "`;
 }
 
 function valoracio(nota : number) {
+    let resultat: interfAcudits = {
+        joke : acuditNet,
+        score: nota,
+        date: new Date().toISOString()
+    };
+
     // Muestra la nota del chiste por consola
-    console.log("Score: ", nota);
+    //console.log("Score: ", nota);
+
+    //Comprobar si el chiste existe y crearlo o modificar la nota
+    const foundIndex = reportAcudits.findIndex(element => element.joke === acuditNet);    
+    (foundIndex == -1) ? reportAcudits.push(resultat) : reportAcudits[foundIndex]=resultat; 
+
+    //Muestra por consola el array de chistes con su última valoración
+    console.log(reportAcudits);
 }
